@@ -1,0 +1,35 @@
+.root{
+    /* card */
+    width: 320px;
+    min-height: 468px;
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 16px;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(239, 238, 244);
+}
+.title{
+    color: rgb(46, 52, 56);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -2%;
+    text-align: left;
+    margin-top: 8px;
+}
+.description{
+    /* XS */
+    color: rgb(92, 105, 112);
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -2%;
+    text-align: left;
+    margin-top: 8px;
+
+}

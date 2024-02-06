@@ -1,0 +1,37 @@
+.root{
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+}
+.wrapper{
+    width: 71px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 8px 0px 4px;
+    border-radius: 4px;
+    background: rgb(54, 37, 255);
+}
+.price{
+    /* S */
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -2%;
+    text-align: left;
+}
+.oldPrice{
+    margin-left: 8px;
+    color: rgb(92, 105, 112);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -2%;
+    text-align: left;
+    text-decoration-line: line-through;
+}

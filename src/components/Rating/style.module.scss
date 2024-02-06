@@ -1,0 +1,22 @@
+.root{
+    width: 55px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2px 4px 2px 4px;
+    margin: 0px 4px;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+}
+.rating{
+    /* S */
+    color: rgb(46, 52, 56);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -2%;
+    text-align: left;
+}

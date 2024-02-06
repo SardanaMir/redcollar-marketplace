@@ -1,0 +1,22 @@
+.root{
+    width: 67px;
+    height: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 8px 6px 6px;
+    margin: 0px 8px;
+    border-radius: 4px;
+    background: rgb(255, 255, 255);
+    margin-left: 8px;
+}
+.text{
+    /* M */
+    color: rgb(54, 37, 255);
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -3%;
+    text-align: left;
+}

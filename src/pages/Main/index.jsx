@@ -4,6 +4,7 @@ import {setProducts} from '../../redux/slices/productsSlice.js';
 import components from '../../components/index.js'
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './style.module.scss'
+
 const Main = () => {
   const dispatch = useDispatch();
   const items = useSelector(state => state.products.products);
@@ -11,7 +12,7 @@ const Main = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await allProducts();
+        // const data = await allProducts();
         dispatch(setProducts(data.products))
       } catch (error) {
         console.error('Error fetching products:', error);
@@ -21,11 +22,15 @@ const Main = () => {
   }, []);
   console.log('items', items)
   return (
-    <div className={styles.root}>
-      {items.map((item, index) =>(
-        <components.ItemBlock key={item.id} {...item}/>
-      ))}
+    <>
+      <components.Header/>
+      <div className={styles.root}>
+        {items.map((item, index) =>(
+          <components.ItemBlock key={item.id} {...item}/>
+        ))}
     </div>
+    </>
+
   )
 }
 

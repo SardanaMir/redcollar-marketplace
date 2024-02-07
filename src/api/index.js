@@ -14,3 +14,8 @@ export const allProducts = async () =>{
     const res = await API.get('products')
     return res.data
 }
+
+export const allCategories = async () =>{
+  const res = await API.get('products/categories')
+  return res.data
+}

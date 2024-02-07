@@ -1,0 +1,23 @@
+.root{
+    position: relative;
+    display: flex;
+
+    width: 100%; /* Ширина контейнера. Подставьте нужное значение */
+    overflow-x: auto; /* Включает горизонтальный скролл, если содержимое выходит за границы контейнера */
+    white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+}
+
+.category {
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 8px;
+    margin: 0px 1px;
+    background: rgb(255, 255, 255);
+    cursor: pointer; 
+    white-space: nowrap; 
+    flex: 0 0 auto;
+    display: inline-block;
+}

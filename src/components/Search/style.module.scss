@@ -1,7 +1,14 @@
+.root{
+    position: relative;
+}
+.searchInput{
+    // position: absolute;
+    // z-index: 1;
+}
 .wrapper{
     position: relative;
-    width: 29px;
-    height: 29px;
+    width: 30px;
+    height: 30px;
     margin: 0px 8px;
     border-radius: 4px;
     background: rgb(255, 255, 255);
@@ -10,17 +17,12 @@
     border: 1px solid #111;
     justify-content: center;
     cursor: pointer;
-    position: relative;
     border: 1px solid rgba(0,0,0,0.1);
-
-
 }
 .input{
-    // position: relative;
     border: 1px solid rgba(0,0,0,0.1);
-    // padding: 8px 10px;
     padding: 4px;
-    padding-left: 25px;
+    padding-left: 30px;
     width: 100%;
     border-radius: 5px;
     font-size: 16px;
@@ -34,13 +36,13 @@
 }
 .icon{
     position: absolute;
-    top: 24px;
-    left: 28px;
+    top: 7px;
+    left: 15px;
 }
 .close{
     position: absolute;
     font-size: 20px;
     cursor: pointer;
-    top:0;
+    top: 2px;
     right: 0;
 }

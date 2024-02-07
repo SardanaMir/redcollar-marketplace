@@ -1,14 +1,9 @@
-.root{
-    position: relative;
-    display: flex;
-
-    width: 100%; /* Ширина контейнера. Подставьте нужное значение */
-    overflow-x: auto; /* Включает горизонтальный скролл, если содержимое выходит за границы контейнера */
-    white-space: nowrap; /* Предотвращает перенос текста на новую строку */
+.container{
+    width: calc(100% - 130px);
 }
-
 .category {
     height: 28px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -19,5 +14,5 @@
     cursor: pointer; 
     white-space: nowrap; 
     flex: 0 0 auto;
-    display: inline-block;
+    // display: inline-block;
 }

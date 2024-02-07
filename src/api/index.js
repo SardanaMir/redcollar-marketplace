@@ -19,3 +19,8 @@ export const allCategories = async () =>{
   const res = await API.get('products/categories')
   return res.data
 }
+
+export const getChosenCategory = async (category) =>{
+  const res = await API.get('products/category/' + category)
+  return res.data
+}

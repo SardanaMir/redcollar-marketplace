@@ -51,7 +51,9 @@ const Categories = () => {
             onSlideChange={(swiper) => (console.log('slide change'))}
             onSwiper={(swiper) => console.log(swiper)}
             >
-            {
+            <>
+            {/* <div className={styles.category}>all</div> */}
+            {   
                 categoriesData.map(category => (
                 <SwiperSlide>
                     <div onClick={(e)=>handleFilter(e)} 
@@ -61,6 +63,8 @@ const Categories = () => {
                 </SwiperSlide>
                 ))
             }
+            </>
+
         </Swiper>
         </div>
         )

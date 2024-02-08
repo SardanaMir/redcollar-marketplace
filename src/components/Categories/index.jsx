@@ -54,14 +54,14 @@ const Categories = () => {
             <>
             {/* <div className={styles.category}>all</div> */}
             {   
-                categoriesData.map(category => (
-                <SwiperSlide>
-                    <div onClick={(e)=>handleFilter(e)} 
-                    className={`${styles.category} ${chosenCategory.includes(category) ? styles.selected : ''}`}>
-                    {category}
-                    </div>
-                </SwiperSlide>
-                ))
+              categoriesData.map(category => (
+              <SwiperSlide>
+                  <div onClick={(e)=>handleFilter(e)} 
+                  className={`${styles.category} ${chosenCategory.includes(category) ? styles.selected : ''}`}>
+                  {category}
+                  </div>
+              </SwiperSlide>
+              ))
             }
             </>
 

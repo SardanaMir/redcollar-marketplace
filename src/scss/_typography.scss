@@ -1,0 +1,36 @@
+.text-l{
+    /* L */
+    color: $gray_main;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -2%;
+    text-align: left;
+}
+.text-m{
+    /* M */
+    color: $gray_main;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -3%;
+    text-align: left;
+}
+.text-s{
+    /* S */
+    color: $gray_main; 
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -3%;
+    text-align: left;
+}
+.text-xs{
+    /* XS */
+    color: $gray_main;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -2%;
+    text-align: left;
+}

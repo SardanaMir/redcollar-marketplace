@@ -10,7 +10,10 @@ const Main = () => {
 
   const items = useSelector(state => state.products.products);
   const filteredProducts = useSelector(state => state.filter.filteredProducts)
+  const searchValue = useSelector(state => state.search.searchValue);
+
   console.log('filter', filteredProducts);
+  console.log('searchvalue', searchValue);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +29,7 @@ const Main = () => {
 
     useEffect(() => {
 
-    }, [filteredProducts]);
+    }, [filteredProducts, searchValue]);
 
   return (
     <>
@@ -36,11 +39,15 @@ const Main = () => {
           filteredProducts.map((item, index) => (
             <components.ItemBlock key={item.id} {...item} />
           ))
-        ) : (
+        ) : searchValue.length > 0 && filteredProducts.length === 0 ? (
+          <div>Ничего не найдено</div>
+        )
+         : searchValue.length === 0 && filteredProducts.length === 0 ?
+         (
           items.map((item, index) => (
             <components.ItemBlock key={item.id} {...item} />
           ))
-        )}
+        ):(<></>)}
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState={
-    isActive: false
+  isActive: false,
+  searchValue: '',
 };
 
 const searchSlice = createSlice({
@@ -10,10 +11,12 @@ const searchSlice = createSlice({
   reducers: {
     isActive: (state, action) => {
       state.isActive = action.payload;
-      console.log(action.payload)
     },
+    setSearchValue: (state, action) =>{
+      state.searchValue = action.payload;
+    }
   },
 });
 
-export const { isActive } = searchSlice.actions;
+export const { isActive, setSearchValue } = searchSlice.actions;
 export default searchSlice.reducer;

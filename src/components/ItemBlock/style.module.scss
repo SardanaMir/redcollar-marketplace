@@ -1,5 +1,4 @@
 .root{
-    // width: 320px;
     width: 25%;
     min-height: 468px;
     display: flex;
@@ -7,8 +6,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 16px;
-    border: 1px solid rgb(255, 255, 255);
-    background: rgb(239, 238, 244);
+    border: 1px solid $white;
 }
 .wrapper{
     width: 288px;
@@ -18,8 +16,7 @@
     }
 }
 .title{
-    color: rgb(46, 52, 56);
-    font-family: Inter;
+    color: $gray_dark;
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;
@@ -28,14 +25,11 @@
     margin-top: 8px;
 }
 .description{
-    /* XS */
-    color: rgb(92, 105, 112);
-    font-family: Inter;
+    color: $gray_main;
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
     letter-spacing: -2%;
     text-align: left;
     margin-top: 8px;
-
 }

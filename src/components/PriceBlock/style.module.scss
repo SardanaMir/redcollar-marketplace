@@ -12,11 +12,10 @@
     align-items: center;
     padding: 0px 8px 0px 4px;
     border-radius: 4px;
-    background: rgb(54, 37, 255);
+    background: $blue_light;
 }
 .price{
-    /* S */
-    color: rgb(255, 255, 255);
+    color: $white;
     font-family: Inter;
     font-size: 14px;
     font-weight: 500;
@@ -26,8 +25,7 @@
 }
 .oldPrice{
     margin-left: 8px;
-    color: rgb(92, 105, 112);
-    font-family: Inter;
+    color: $gray_main;
     font-size: 14px;
     font-weight: 500;
     line-height: 16px;

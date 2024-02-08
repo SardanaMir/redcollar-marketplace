@@ -10,14 +10,11 @@
     align-items: center;
     padding: 6px 8px;
     margin: 0px 1px;
-    background: rgb(255, 255, 255);
+    background: $white;
     cursor: pointer; 
     white-space: nowrap; 
-    flex: 0 0 auto;
-    // display: inline-block;
 }
 .selected{
-    background: rgb(54, 37, 255);
-    color: rgb(255, 255, 255);
-
+    background: $blue_light;
+    color: $white;
 }

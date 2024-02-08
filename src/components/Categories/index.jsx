@@ -27,16 +27,10 @@ const Categories = () => {
     }, []);
 
     const handleFilter = async (e) =>{
-        const clickedCategory = e.target.textContent;
-        if (chosenCategory.includes(clickedCategory)) {
-            const updatedChosenCategories = chosenCategory.filter(category => category !== clickedCategory);
-            dispatch(setChosenCategories(updatedChosenCategories)); 
-            dispatch(setFilteredProducts([])); 
-        } else {
-            dispatch(setChosenCategories([...chosenCategory, clickedCategory]))
-            const res = await getChosenCategory(clickedCategory);
-            dispatch(setFilteredProducts(res.products));
-        }
+      const clickedCategory = e.target.textContent;
+      const res = await getChosenCategory(clickedCategory);
+      dispatch(setFilteredProducts(res.products));
+      dispatch(setChosenCategories(clickedCategory)); 
     }
 
   return (
@@ -57,7 +51,7 @@ const Categories = () => {
               categoriesData.map(category => (
               <SwiperSlide>
                   <div onClick={(e)=>handleFilter(e)} 
-                  className={`${styles.category} ${chosenCategory.includes(category) ? styles.selected : ''}`}>
+                  className={`${styles.category} ${chosenCategory === category ? styles.selected : ''}`}>
                   {category}
                   </div>
               </SwiperSlide>

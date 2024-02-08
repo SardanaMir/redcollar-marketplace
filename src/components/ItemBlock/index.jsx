@@ -31,8 +31,8 @@ const ItemBlock = ({title, description, price, rating, discountPercentage, image
 
         <div>
             <components.Rating rating={rating}/>
-            <h3 className={styles.title}>{title}</h3>
-            <p className={styles.description}>
+            <h3 className='text-s'>{title}</h3>
+            <p className='text-xs'>
             {description} Read more 
             </p>
             <components.PriceBlock price={price}/>

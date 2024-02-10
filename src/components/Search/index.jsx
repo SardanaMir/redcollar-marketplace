@@ -41,7 +41,7 @@ const Search = () => {
             dispatch(setFilteredProducts(res.products));
             dispatch(setSearchValue(data));
             dispatch(setChosenCategories('')); 
-        }, 1000),
+        }, 500),
         []
     )
 

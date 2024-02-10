@@ -11,31 +11,23 @@ const contentStyle = {
   textAlign: 'center',
   background: '#364d79',
 };
-
-const ItemBlock = ({title, description, price, rating, discountPercentage, images}) => {
+// title, description, price, rating, discountPercentage, images, item, 
+const ItemBlock = (props) => {
+    // console.log('itemblock', props)
     const onChange = (currentSlide) => {
         console.log(currentSlide);
       };
   return (
     <div className={styles.root}>
-        <components.OffSale discountPercentage={discountPercentage}/>
-        {/* <Carousel>
-            {   
-                images.map(image => (
-                <div className={styles.wrapper}>
-                    <img className={styles.image} src={image} alt={title} />
-                </div>
-            ))
-            }
-        </Carousel> */}
-
+        <components.OffSale discountPercentage={props.discountPercentage}/>
+         <img src="" alt="фото товара" />   
         <div>
-            <components.Rating rating={rating}/>
-            <h3 className='text-s'>{title}</h3>
+            <components.Rating rating={props.rating}/>
+            <h3 className='text-s'>{props.title}</h3>
             <p className='text-xs'>
-            {description} Read more 
+            {props.description} Read more 
             </p>
-            <components.PriceBlock price={price}/>
+            <components.PriceBlock price={props.price} item={props}/>
         </div>
     </div>
   )

@@ -30,14 +30,14 @@ const Main = () => {
     useEffect(() => {
 
     }, [filteredProducts, searchValue]);
-
+    
   return (
     <>
       <components.Header />
       <div className={styles.root}>
         {filteredProducts && filteredProducts.length > 0 ? (
           filteredProducts.map((item, index) => (
-            <components.ItemBlock key={item.id} {...item} />
+            <components.ItemBlock onClickAdd={onClickAdd} key={item.id} {...item} />
           ))
         ) : searchValue.length > 0 && filteredProducts.length === 0 ? (
           <div>Ничего не найдено</div>

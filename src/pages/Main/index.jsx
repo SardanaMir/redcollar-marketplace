@@ -83,7 +83,7 @@ const Main = () => {
             )}
           </div>
           {isFetchingMore && <div className={styles.loadingWrapper}><components.Loading /></div>}
-          {error && <button onClick={handleLoadMore}>Загрузить ещё</button>}
+          {error && <button className={styles.btnUpload}onClick={handleLoadMore}>Загрузить ещё</button>}
         </>
       )}
     </>

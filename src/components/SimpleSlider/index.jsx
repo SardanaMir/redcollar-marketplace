@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './style.module.scss';
 
 export default function SimpleSlider({images, title}) {
-  console.log('slider', images)
+  // console.log('slider', images)
   var settings = {
     dots: true,
     infinite: true,

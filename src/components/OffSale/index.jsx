@@ -5,7 +5,7 @@ const OffSale = ({discountPercentage}) => {
   return (
     <div className={styles.root}>
         <div className={styles.discount}>{discountPercentage}%</div>
-        <p className={styles.text}>off sale</p>
+        <p className='text-s'>off sale</p>
     </div>
   )
 }

@@ -1,0 +1,48 @@
+.roundBtn {
+    width: 72px;
+    height: 24px;
+    margin: 0px 8px;
+    border-radius: 4px;
+    background: rgb(239, 238, 244);
+    cursor: pointer;
+    border: none;
+}
+
+.btn{
+    width: 72px;
+    height: 24px;
+    margin: 0px 8px;
+    border-radius: 4px;
+    background: rgb(239, 238, 244);
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 8px;
+}
+.counter{
+    color: rgb(46, 52, 56);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -2%;
+    text-align: center;
+    font-size: 16px;
+}
+.block{
+    margin-top: 30px;
+}
+// .itemWrapper{
+//     display: flex;
+// }
+.imgWrapper{
+    height: 50px;
+    justify-items: center
+}
+.image{
+    height: 100%;
+}
+.itemWrapper{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}

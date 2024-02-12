@@ -1,8 +1,11 @@
-@import './fonts.scss';
-@import './variables.scss';
-@import './libs/normalize.scss';
+@import './fonts';
+@import './variables';
+@import './typography';
+@import './libs/normalize';
 
-@import './components/all.scss';
+body{
+    background: $gray_light;
+}
 
 
 

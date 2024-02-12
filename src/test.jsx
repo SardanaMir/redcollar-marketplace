@@ -1,92 +1,49 @@
-import React, { useEffect, useState } from "react";
-import Cart from "../Cart";
-import { allProducts, getPaginatedProducts } from "../../api";
-import { setProducts } from "../../redux/slices/productsSlice.js";
-import { setTotalPages } from '../../redux/slices/paginationSlice';
-import components from "../../components/index.js";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "./style.module.scss";
-import UseInfiniteScroll from "../../hooks/InfiniteScroll/index.jsx";
+import { useState, useEffect } from 'react';
 
-const Main = () => {
-  const dispatch = useDispatch();
-  const items = useSelector((state) => state.products.products);
-  const filteredProducts = useSelector(
-    (state) => state.filter.filteredProducts
-  );
-  const searchValue = useSelector((state) => state.search.searchValue);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [initialLoading, setInitialLoading] = useState(true); // Добавлено новое состояние
-  
-  const toggleCart = () => {
-    setIsOpen(true);
-    console.log("toggle");
-  };
+const UseInfiniteScroll = (fetchData) => {
+  const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [isFetchingMore, setIsFetchingMore] = useState(false);
 
-  const fetchProducts = async (pageNum) => {
-    try {
-      const data = await getPaginatedProducts(pageNum);
-      
-      setIsLoading(false);
-      
-      if (initialLoading) { // Проверка на отображение isLoading только при первой загрузке
-        setInitialLoading(false);
-      }
-      
-      dispatch(setProducts(data.products));
-      console.log('main', data.products);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      setIsLoading(false); // Дополнительное устанавливание isLoading в false в случае ошибки
+  const handleLoadMore = () => {
+    if (!isFetchingMore && hasMore) {
+      setIsFetchingMore(true);
+      const nextPage = page + 1;
+      setPage(nextPage);
     }
   };
-  
+
   useEffect(() => {
-    fetchProducts(0);
-  }, []);
+    const handleScroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight) {
+        handleLoadMore();
+      }
+    };
 
-  useEffect(() => {}, [filteredProducts, searchValue]);
-  
-  const { isFetchingMore, error, handleLoadMore } = UseInfiniteScroll(fetchProducts, isLoading, setIsLoading);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [page, isFetchingMore, hasMore]);
 
-  return (
-    <>
-      {isOpen ? (
-        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
-      ) : (
-        <>
-          <components.Header onCartButtonClick={toggleCart} />
-          <div className={styles.root}>
-            {initialLoading ? (
-              <h2>Загрузка...</h2>
-            ) : (
-              <>
-                {filteredProducts && filteredProducts.length > 0 ? (
-                  filteredProducts.map((item, index) => (
-                    <components.ItemBlock
-                      onClickAdd={onClickAdd}
-                      {...item}
-                    />
-                  ))
-                ) : searchValue.length > 0 && filteredProducts.length === 0 ? (
-                  <div>Ничего не найдено</div>
-                ) : searchValue.length === 0 && filteredProducts.length === 0 ? (
-                  items.map((item, index) => (
-                    <components.ItemBlock {...item} />
-                  ))
-                ) : (
-                  <h2>Ошибка. Попробуйте перезагрузить страницу</h2>
-                )}
-              </>
-            )}
-            {isFetchingMore && <div>Загрузка дополнительных товаров...</div>}
-            {error && <button onClick={handleLoadMore}>Загрузить ещё</button>}
-          </div>
-        </>
-      )}
-    </>
-  );
+  useEffect(() => {
+    const fetchDataAndUpdateState = async () => {
+      try {
+        setIsLoading(true);
+        const data = await fetchData(page);
+        setHasMore(data.hasMore);
+        setIsLoading(false);
+        setIsFetchingMore(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setError(true);
+      }
+    };
+
+    fetchDataAndUpdateState();
+  }, [fetchData, page]);
+
+  return { isLoading, isFetchingMore, error, handleLoadMore };
 };
 
-export default Main;
+export default UseInfiniteScroll;

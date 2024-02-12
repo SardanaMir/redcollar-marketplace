@@ -18,8 +18,8 @@ export default function SimpleSlider({images, title}) {
     <div className={styles.sliderContainer}>
       <Slider {...settings}>
         {
-          images.map(image =>(
-            <div className={styles.imgWrapper}>
+          images.map((image, index) =>(
+            <div key={index} className={styles.imgWrapper}>
               <img className={styles.img} src={image} alt={title} />
             </div>
           ))

@@ -2,12 +2,13 @@ import React from 'react'
 import icons from '../../assets/icons'
 import styles from './style.module.scss'
 
-const CartButton = () => {
+const CartButton = ({ onCartButtonClick }) => {
+
   return (
-    <div className={styles.root}>
+    <button className={styles.root} onClick={onCartButtonClick}>
         <img src={icons.purpleBag} alt="cart button" />
         <p className={styles.text}>cart</p>
-    </div>
+    </button>
   )
 }
 

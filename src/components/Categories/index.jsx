@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
 import { allCategories } from "../../api";
@@ -15,12 +15,14 @@ const Categories = () => {
   const isActive = useSelector((state) => state.search.isActive);
   const categoriesData = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
-  const chosenCategory = useSelector((state) => state.filter.chosenCategory);
+  const chosenCategory =
+    useSelector((state) => state.filter.chosenCategory) || "all";
 
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const data = await allCategories();
+        data.unshift("all");
         dispatch(setCategories(data));
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -45,18 +47,20 @@ const Categories = () => {
           <Swiper
             spaceBetween={1}
             slidesPerView={9}
-            onSlideChange={(swiper) => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={(swiper) => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
           >
             <>
-              {/* <div className={styles.category}>all</div> */}
               {categoriesData.map((category, index) => (
                 <SwiperSlide>
                   <div
                     key={index}
                     onClick={(e) => handleFilter(e)}
                     className={`${styles.category} ${
-                      chosenCategory === category ? styles.selected : ""
+                      chosenCategory === category ||
+                      (chosenCategory === "" && category === "all")
+                        ? styles.selected
+                        : ""
                     }`}
                   >
                     {category}

@@ -12,6 +12,8 @@
     border-radius: 4px;
     background: $white;
     margin-left: 8px;
+    cursor: pointer;
+    border: none;
 }
 .text{
     /* M */
@@ -21,4 +23,5 @@
     line-height: 18px;
     letter-spacing: -3%;
     text-align: left;
+    margin-left: 5px;
 }

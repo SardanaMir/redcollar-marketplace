@@ -3,6 +3,8 @@ import Cart from "../Cart";
 import { allProducts, getPaginatedProducts } from "../../api";
 import { setProducts } from "../../redux/slices/productsSlice.js";
 import { setTotalPages } from "../../redux/slices/paginationSlice";
+import {isActive, setSearchValue} from '../../redux/slices/searchSlice'
+
 import components from "../../components/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./style.module.scss";
@@ -20,18 +22,19 @@ const Main = () => {
 
   const toggleCart = () => {
     setIsOpen(true);
+    dispatch(isActive(false));
     console.log("toggle");
   };
 
   const fetchProducts = async (pageNum) => {
     try {
       const data = await getPaginatedProducts(pageNum);
-      console.log(data);
+      // console.log(data);
       if (initialLoading) {
         setInitialLoading(false);
       }
       dispatch(setProducts(data.products));
-      console.log("main", data.products);
+      // console.log("main", data.products);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -52,7 +55,7 @@ const Main = () => {
         <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
       ) : (
         <>
-          <components.Header onCartButtonClick={toggleCart} />
+          <components.Header onCartButtonClick={toggleCart} setIsOpen={setIsOpen} />
           <div className={styles.root}>
             {/* {
               items.map(item =>(

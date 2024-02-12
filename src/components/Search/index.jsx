@@ -6,8 +6,7 @@ import * as Yup from 'yup';
 import components from '../index'
 import { getSearchProducts } from '../../api';
 import {isActive, setSearchValue} from '../../redux/slices/searchSlice'
-import {setChosenCategories} from '../../redux/slices/filterSlice'
-import {setFilteredProducts} from '../../redux/slices/filterSlice'
+import {setChosenCategories, setFilteredProducts} from '../../redux/slices/filterSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 const Search = () => {
@@ -15,7 +14,7 @@ const Search = () => {
     const [value, setValue] = useState('');
     const dispatch = useDispatch()
     const inputRef = useRef()
-    
+    // const isActive = useSelector(state => state.search.isActive)
     const schema = Yup.object().shape({
         value: Yup.string()
         .min(4)
@@ -32,7 +31,8 @@ const Search = () => {
 
     const searchHandle = () =>{
         setIsOpen(true);
-        inputRef.current.focus()
+        dispatch(isActive(true));
+        // inputRef.current.focus()
     }
 
     const updateSearchValue = useCallback(

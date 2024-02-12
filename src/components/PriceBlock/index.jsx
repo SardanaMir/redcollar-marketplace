@@ -11,7 +11,7 @@ const PriceBlock = ({ item }) => {
     item.price / ((100 - item.discountPercentage) / 100)
   );
   const cartItems = useSelector((state) => state.cart.items);
-  console.log("priceblock", cartItems);
+  // console.log("priceblock", cartItems);
 
   const onClickAdd = () => {
     item = { ...item, count: 1, totalItemPrice: item.price };

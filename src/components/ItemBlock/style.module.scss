@@ -3,8 +3,8 @@
     min-height: 468px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: space-between;
+    // align-items: flex-start;
     padding: 16px;
     border: 1px solid $white;
 }
@@ -36,5 +36,9 @@
 .imgWrapper{
     width: 288px;
     height: 288px;
-
+}
+.link{
+    color: blue;
+    cursor: pointer;
+    margin-left: 5px;
 }

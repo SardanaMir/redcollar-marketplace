@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import components from "..";
 import styles from "./style.module.scss";
 
 const ItemBlock = (props) => {
-  // console.log('itemblock', props.images)
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <div className={styles.root}>
-      <components.OffSale discountPercentage={props.discountPercentage} />
-      <components.SimpleSlider images={props.images} title={props.title}/>
-      <div>
-        <components.Rating rating={props.rating} />
-        <h3 className="text-s">{props.title}</h3>
-        <p className="text-xs">{props.description} Read more</p>
-        <components.PriceBlock item={props} />
-      </div>
-    </div>
+    <>
+      {isOpen ? (
+        <div className={styles.root}>
+          <div>
+            <components.Rating rating={props.rating} />
+            <h3 className="text-s">{props.title}</h3>
+            <p className="text-xs">
+              {props.description}
+              <span className={styles.link} onClick={toggleOpen}>Hide description</span>
+            </p>
+          </div>
+          <components.PriceBlock item={props} />
+        </div>
+      ) : (
+        <div className={styles.root}>
+          <div>
+            <components.OffSale discountPercentage={props.discountPercentage} />
+            <components.SimpleSlider images={props.images} title={props.title} />
+          </div>
+          <div>
+            <components.Rating rating={props.rating} />
+            <h3 className="text-s">{props.title}</h3>
+            <p className="text-xs">
+              {props.description}
+              <span className={styles.link} onClick={toggleOpen}>Read more</span>
+            </p>
+            <components.PriceBlock item={props} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

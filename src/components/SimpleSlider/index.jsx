@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from './style.module.scss';
 
 export default function SimpleSlider({images, title}) {
-  // console.log('slider', props.images)
+  console.log('slider', images)
   var settings = {
     dots: true,
     infinite: true,
@@ -16,15 +16,29 @@ export default function SimpleSlider({images, title}) {
 
   return (
     <div className={styles.sliderContainer}>
+      {images.length > 1 ? (
       <Slider {...settings}>
-        {
-          images.map((image, index) =>(
-            <div key={index} className={styles.imgWrapper}>
-              <img className={styles.img} src={image} alt={title} />
-            </div>
-          ))
-        }
+      {
+        images.map((image, index) =>(
+          <div key={index} className={styles.imgWrapper}>
+            <img className={styles.img} src={image} alt={title} />
+          </div>
+        ))
+      }
       </Slider>
+      ):(
+        <>
+        {
+        images.map((image, index) =>(
+          <div key={index} className={styles.imgWrapper}>
+            <img className={styles.img} src={image} alt={title} />
+          </div>
+        ))
+        }
+        </>
+      )
+      }
+
     </div>
   );
 }

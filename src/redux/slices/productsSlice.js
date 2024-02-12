@@ -9,7 +9,11 @@ const productsSlice = createSlice({
   initialState,
   reducers: {
     setProducts: (state, action) => {
-      state.products = action.payload;
+      action.payload.forEach((newProduct) => {
+        if (!state.products.find(product => product.id === newProduct.id)) {
+          state.products.push(newProduct);
+        }
+      });
     },
   },
 });

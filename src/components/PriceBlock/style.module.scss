@@ -13,6 +13,7 @@
     padding: 0px 8px 0px 4px;
     border-radius: 4px;
     background: $blue_light;
+    cursor: pointer;
 }
 .price{
     color: $white;
@@ -32,4 +33,24 @@
     letter-spacing: -2%;
     text-align: left;
     text-decoration-line: line-through;
+}
+.wrapperInCart{
+    width: 71px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0px 8px 0px 4px;
+    border-radius: 4px;
+    background: $white;
+}
+.priceInCart{
+    color: $blue_light;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: -2%;
+    text-align: left;
 }

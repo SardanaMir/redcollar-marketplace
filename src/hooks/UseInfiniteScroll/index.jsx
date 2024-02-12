@@ -9,10 +9,11 @@ const UseInfiniteScroll = (fetchData) => {
   const [page, setPage] = useState(0);
   const [error, setError] = useState(false);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
+  // const [hasMore, setHasMore] = useState(true);
   const dispatch = useDispatch();
 
   const handleLoadMore = () => {
-    if (!isFetchingMore && hasMore) {
+    if (!isFetchingMore) {
       setIsFetchingMore(true);
       const nextPage = page + 10;
       setPage(nextPage);

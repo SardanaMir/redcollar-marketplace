@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cart from "../Cart";
 import { allProducts, getPaginatedProducts } from "../../api";
 import { setProducts } from "../../redux/slices/productsSlice.js";
-import { setTotalPages} from '../../redux/slices/paginationSlice'
+import { setTotalPages } from "../../redux/slices/paginationSlice";
 import components from "../../components/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./style.module.scss";
@@ -16,7 +16,7 @@ const Main = () => {
   );
   const searchValue = useSelector((state) => state.search.searchValue);
   const [isOpen, setIsOpen] = useState(false);
-  const [initialLoading, setInitialLoading] = useState(true); 
+  const [initialLoading, setInitialLoading] = useState(true);
 
   const toggleCart = () => {
     setIsOpen(true);
@@ -26,21 +26,25 @@ const Main = () => {
   const fetchProducts = async (pageNum) => {
     try {
       const data = await getPaginatedProducts(pageNum);
+      console.log(data);
       if (initialLoading) {
         setInitialLoading(false);
       }
       dispatch(setProducts(data.products));
-      console.log('main', data.products);
+      console.log("main", data.products);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
+
   useEffect(() => {
     fetchProducts(0);
   }, []);
 
-  useEffect(() => {}, [filteredProducts, searchValue]);
-  const { isFetchingMore, error, handleLoadMore } = UseInfiniteScroll(fetchProducts);
+  // useEffect(() => {}, [filteredProducts, searchValue]);
+
+  const { isFetchingMore, error, handleLoadMore } =
+    UseInfiniteScroll(fetchProducts);
 
   return (
     <>
@@ -50,18 +54,22 @@ const Main = () => {
         <>
           <components.Header onCartButtonClick={toggleCart} />
           <div className={styles.root}>
+            {/* {
+              items.map(item =>(
+                <components.ItemBlock {...item}/>
+              ))
+            } */}
             {initialLoading ? (
               <h2>Загрузка...</h2>
             ) : (
               <>
                 {filteredProducts && filteredProducts.length > 0 ? (
                   filteredProducts.map((item, index) => (
-                    <components.ItemBlock 
+                    <components.ItemBlock
                       // onClickAdd={onClickAdd}
                       key={item.id}
                       {...item}
                     />
-                    
                   ))
                 ) : searchValue.length > 0 && filteredProducts.length === 0 ? (
                   <div>Ничего не найдено</div>

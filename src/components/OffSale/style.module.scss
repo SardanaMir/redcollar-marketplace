@@ -1,5 +1,5 @@
 .root{
-    width: 108px;
+    // width: 108px;
     height: 24px;
     border-radius: 4px;
     background: $white;
@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2px 4px 2px 4px;
+    gap: 5px;
 }
 .discount{
     color: $blue_light;

@@ -7,7 +7,8 @@ import Search from './Search'
 import CartButton from './CartButton'
 import Categories from './Categories'
 import CartItemBlock from './CartItemBlock';
-
+import SimpleSlider from './SimpleSlider';
+import AddedInCart from './AddedInCart';
 const components = {
     ItemBlock,
     OffSale,
@@ -17,7 +18,9 @@ const components = {
     Search,
     CartButton,
     Categories,
-    CartItemBlock
+    CartItemBlock,
+    SimpleSlider,
+    AddedInCart
 };
 
 export default components;

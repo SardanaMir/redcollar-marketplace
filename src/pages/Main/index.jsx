@@ -55,37 +55,34 @@ const Main = () => {
             setIsOpen={setIsOpen}
           />
           <div className={styles.root}>
-            {/* {
-              items.map(item =>(
-                <components.ItemBlock {...item}/>
-              ))
-            } */}
             {initialLoading ? (
-              <h2>Загрузка...</h2>
+              <div className={styles.initialLoadingWrapper}>
+                <components.Loading />
+              </div>
             ) : (
               <>
                 {filteredProducts && filteredProducts.length > 0 ? (
-                  filteredProducts.map((item, index) => (
-                    <components.ItemBlock
-                      // onClickAdd={onClickAdd}
-                      key={item.id}
-                      {...item}
-                    />
+                  filteredProducts.map((item) => (
+                    <components.ItemBlock key={item.id} {...item} />
                   ))
                 ) : searchValue.length > 0 && filteredProducts.length === 0 ? (
-                  <div>Ничего не найдено</div>
+                  <components.Message
+                    title={"Ничего не найдено, попробуйте изменить запрос"}
+                  />
                 ) : searchValue.length === 0 &&
                   filteredProducts.length === 0 ? (
-                  items.map((item, index) => (
+                  items.map((item) => (
                     <components.ItemBlock key={item.id} {...item} />
                   ))
                 ) : (
-                  <h2>Ошибка попробуйте перезагрузить страницу</h2>
+                  <components.Message
+                    title={"Ошибка попробуйте перезагрузить страницу"}
+                  />
                 )}
               </>
             )}
           </div>
-          {isFetchingMore && <h3>Загрузка дополнительных товаров...</h3>}
+          {isFetchingMore && <div className={styles.loadingWrapper}><components.Loading /></div>}
           {error && <button onClick={handleLoadMore}>Загрузить ещё</button>}
         </>
       )}

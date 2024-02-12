@@ -9,6 +9,9 @@ import Categories from './Categories'
 import CartItemBlock from './CartItemBlock';
 import SimpleSlider from './SimpleSlider';
 import AddedInCart from './AddedInCart';
+import Message from './Message';
+import Loading from './Spin';
+
 const components = {
     ItemBlock,
     OffSale,
@@ -20,7 +23,9 @@ const components = {
     Categories,
     CartItemBlock,
     SimpleSlider,
-    AddedInCart
+    AddedInCart,
+    Message,
+    Loading
 };
 
 export default components;

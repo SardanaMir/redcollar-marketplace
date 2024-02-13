@@ -1,0 +1,19 @@
+.container {
+  width: calc(100% - 130px);
+}
+.category {
+  height: 28px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 8px;
+  margin: 0px 1px;
+  background: $white;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.selected {
+  background: $blue_light;
+  color: $white;
+}

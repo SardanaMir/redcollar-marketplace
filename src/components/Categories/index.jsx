@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { allCategories } from "../../api";
 import { setCategories } from "../../redux/slices/categoriesSlice";
 import { getChosenCategory } from "../../api";
@@ -9,10 +9,10 @@ import {
   setChosenCategories,
 } from "../../redux/slices/filterSlice";
 import "swiper/css";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 const Categories = () => {
-  const isActive = useSelector((state) => state.search.isActive);
+  const isSearchInputOpen = useSelector((state) => state.search.isActive);
   const categoriesData = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
   const chosenCategory =
@@ -40,23 +40,17 @@ const Categories = () => {
 
   return (
     <>
-      {isActive ? (
+      {isSearchInputOpen ? (
         <></>
       ) : (
         <div className={styles.container}>
-          <Swiper
-            spaceBetween={1}
-            slidesPerView={9}
-            // onSlideChange={(swiper) => console.log("slide change")}
-            // onSwiper={(swiper) => console.log(swiper)}
-          >
+          <Swiper spaceBetween={1} slidesPerView={9}>
             <>
               {categoriesData.map((category, index) => (
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <div
-                    key={index}
                     onClick={(e) => handleFilter(e)}
-                    className={`${styles.category} ${
+                    className={`${styles.category} text-m ${
                       chosenCategory === category ||
                       (chosenCategory === "" && category === "all")
                         ? styles.selected

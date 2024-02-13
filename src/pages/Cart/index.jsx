@@ -1,20 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import components from "../../components";
-import styles from "./style.module.scss";
 import { useSelector } from "react-redux";
+import components from "../../components";
+import styles from "./styles.module.scss";
 
-const Cart = ({ isOpen, setIsOpen }) => {
+const Cart = ({ setIsOpen }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  const channel = new BroadcastChannel('cartChannel');
-
-  channel.onmessage = (event) => {
-    console.log('Received message:', event.data);
-    console.log('cartItems', cartItems);
-  };
-  
   return (
     <div className={styles.overlay}>
       <div className={styles.wrapper}>
@@ -36,13 +28,16 @@ const Cart = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
         <div>
-          <div className={styles.flex}>
-            <p>{cartItems.length} positions</p>
+          <div className={styles.totalPriceWrapper}>
+            <p className="text-xs">{cartItems.length} positions</p>
             <h3>${totalPrice}</h3>
           </div>
-          <Link to="/">
-            <button className={styles.button}>back to products</button>
-          </Link>
+          <button
+            onClick={() => setIsOpen(false)}
+            className={`${styles.button} text-l`}
+          >
+            back to products
+          </button>
         </div>
       </div>
     </div>

@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 import { allProducts } from "../../api";
-import {
-  setItems
-} from "../../redux/slices/paginationSlice";
-import { useDispatch } from "react-redux";
 
 const UseInfiniteScroll = (fetchData) => {
   const [page, setPage] = useState(0);
   const [error, setError] = useState(false);
   const [isFetchingMore, setIsFetchingMore] = useState(false);
-  // const [hasMore, setHasMore] = useState(true);
-  const dispatch = useDispatch();
 
   const handleLoadMore = () => {
     if (!isFetchingMore) {
@@ -37,8 +31,7 @@ const UseInfiniteScroll = (fetchData) => {
   useEffect(() => {
     const fetchDataAndUpdateState = async () => {
       try {
-        const data = await fetchData(page);
-        dispatch(setItems(data));
+        await fetchData(page);
         setIsFetchingMore(false);
       } catch (error) {
         console.error("Error fetching data:", error);

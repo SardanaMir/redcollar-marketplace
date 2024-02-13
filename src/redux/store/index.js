@@ -4,7 +4,6 @@ import searchReducer from "../slices/searchSlice";
 import categoriesReducer from "../slices/categoriesSlice";
 import filterReducer from "../slices/filterSlice";
 import cartReducer from "../slices/cartSlice";
-import paginationReducer from "../slices/paginationSlice";
 
 export default configureStore({
   reducer: {
@@ -13,6 +12,5 @@ export default configureStore({
     categories: categoriesReducer,
     filter: filterReducer,
     cart: cartReducer,
-    pagination: paginationReducer,
   },
 });

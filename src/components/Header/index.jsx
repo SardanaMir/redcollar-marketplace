@@ -1,19 +1,17 @@
-import React from 'react'
-import components from '../index'
-import styles from './style.module.scss'
+import React from "react";
+import components from "../index";
+import styles from "./styles.module.scss";
 
-const Header = (props) => {
-  // console.log('header', props)
+const Header = ({ onCartButtonClick }) => {
   return (
-    <header> 
-        <div className={styles.root}>
-            <components.Search/>
-            <components.Categories/>
-            <components.CartButton onCartButtonClick={props.onCartButtonClick}/>
-            {/* <button onClick={props.onCartButtonClick}>open cart</button> */}
-        </div>
+    <header>
+      <div className={styles.root}>
+        <components.Search />
+        <components.Categories />
+        <components.CartButton onCartButtonClick={onCartButtonClick} />
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -3,7 +3,7 @@
     height: 24px;
     margin: 0px 8px;
     border-radius: 4px;
-    background: rgb(239, 238, 244);
+    background: $gray_light;
     cursor: pointer;
     border: none;
 }
@@ -13,7 +13,7 @@
     height: 24px;
     margin: 0px 8px;
     border-radius: 4px;
-    background: rgb(239, 238, 244);
+    background: $gray_light;
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -21,19 +21,10 @@
 }
 .counter{
     color: rgb(46, 52, 56);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    letter-spacing: -2%;
-    text-align: center;
-    font-size: 16px;
 }
 .block{
     margin-top: 30px;
 }
-// .itemWrapper{
-//     display: flex;
-// }
 .imgWrapper{
     height: 50px;
     justify-items: center

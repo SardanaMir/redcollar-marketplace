@@ -1,0 +1,15 @@
+.root{
+    width: 67px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 6px 8px 6px 6px;
+    justify-content: space-between;
+    border-radius: 4px;
+    background: $white;
+    cursor: pointer;
+    border: none;
+}
+.text{
+    color: $blue_light;
+}

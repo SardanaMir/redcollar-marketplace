@@ -1,21 +1,16 @@
-import React from 'react'
+import React from "react";
 import icons from "../../assets/icons";
-
-import styles from './style.module.scss'
+import styles from "./styles.module.scss";
 
 const AddedInCart = () => {
-    // const dispatch = useDispatch();
-    // const cartItems = useSelector(state => state.cart.items);
-    // const isInCart = cartItems.some(cartItem => cartItem.id === item.id);
-
-    return (
-      <div className={styles.root}>
-        <div  className={styles.wrapper}>
-          <img src={icons.bagBlue} alt="small bag" />
-          <div className={styles.text}>added in cart</div>
-        </div>
+  return (
+    <div className={styles.root}>
+      <div className={`${styles.wrapper} wrapper`}>
+        <img src={icons.bagBlue} alt="small bag" />
+        <p className={`${styles.text} text-s`}>added in cart</p>
       </div>
-    );
-}
+    </div>
+  );
+};
 
-export default AddedInCart
+export default AddedInCart;

@@ -1,17 +1,13 @@
 .root{
     position: relative;
 }
-.searchInput{
-    // position: absolute;
-    // z-index: 1;
-}
 .wrapper{
     position: relative;
     width: 30px;
     height: 30px;
     margin: 0px 8px;
     border-radius: 4px;
-    background: rgb(255, 255, 255);
+    background: $white;
     display: flex;
     align-items:center;
     border: 1px solid #111;
@@ -23,16 +19,11 @@
     border: 1px solid rgba(0,0,0,0.1);
     padding: 4px;
     padding-left: 30px;
-    // width: calc(100% - 80px);
+    width: calc(100vw - 120px);
     border-radius: 5px;
     font-size: 16px;
-    // transition: all 0.15s ease-in-out;
     margin: 0px 8px;
-    width: 1200px;
-    // &:focus{
-    //     border: 1px solid rgba(0,0,0,0.2);
-    //     width: 100%;
-    // }
+    // width: 1200px;
 }
 .icon{
     position: absolute;

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Cart from "../Cart";
 import { getPaginatedProducts } from "../../api";
 import { setProducts } from "../../redux/slices/productsSlice";
 import { isActive } from "../../redux/slices/searchSlice";
 import components from "../../components/index.js";
-import { useDispatch, useSelector } from "react-redux";
-import styles from "./style.module.scss";
 import UseInfiniteScroll from "../../hooks/UseInfiniteScroll/index.jsx";
+import styles from "./styles.module.scss";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ const Main = () => {
   return (
     <>
       {isOpen ? (
-        <Cart isOpen={isOpen} setIsOpen={setIsOpen} />
+        <Cart setIsOpen={setIsOpen} />
       ) : (
         <>
           <components.Header
@@ -82,8 +82,16 @@ const Main = () => {
               </>
             )}
           </div>
-          {isFetchingMore && <div className={styles.loadingWrapper}><components.Loading /></div>}
-          {error && <button className={styles.btnUpload}onClick={handleLoadMore}>Загрузить ещё</button>}
+          {isFetchingMore && (
+            <div className={styles.loadingWrapper}>
+              <components.Loading />
+            </div>
+          )}
+          {error && (
+            <button className={styles.btnUpload} onClick={handleLoadMore}>
+              Загрузить ещё
+            </button>
+          )}
         </>
       )}
     </>

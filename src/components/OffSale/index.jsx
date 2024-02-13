@@ -1,13 +1,13 @@
-import React from 'react'
-import styles from './style.module.scss'
+import React from "react";
+import styles from "./styles.module.scss";
 
-const OffSale = ({discountPercentage}) => {
+const OffSale = ({ discountPercentage }) => {
   return (
     <div className={styles.root}>
-        <div className={styles.discount}>{discountPercentage}%</div>
-        <p className='text-s'>off sale</p>
+      <p className={`${styles.discount} text-s`}>{discountPercentage}%</p>
+      <p className={`${styles.text} text-s`}>off sale</p>
     </div>
-  )
-}
+  );
+};
 
-export default OffSale
+export default OffSale;

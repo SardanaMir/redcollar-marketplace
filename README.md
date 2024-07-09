@@ -1,23 +1,22 @@
 # Marketplace
 
-Данный проект "Маркетплэйс" выполнен в рамках тестового задания для компании Red Collar от фронтенд-разработчика Сарданы Дорджиевой.
+This "Marketplace" project was completed as a test task for Red Collar from frontend developer Sardana Dordzhieva.
 <br></br>
 https://redcollar-marketplace.vercel.app/
 <br></br>
-На веб-сайте можно ознакомиться с товарами, посмотреть фотографии в карточке товара с помощью слайдера,
-совершить поиска товара, также выбрать интересующуюся категорию, ознакомиться с описанием товара, добавить в корзину понравившийся товар.<br>
-В корзине можете удалить товар, увеличить кол-во добавленного товара или наоборот убавить кол-во, ознакомиться с итоговой ценой позиции и общей суммой товаров в корзине.
+On the website, you can browse products, view photos in the product card using a slider, search for products, select a category of interest, read the product description, and add a favorite product to the cart.
+In the cart, you can delete a product, increase the quantity of a product added, or decrease the quantity, view the final price of the item, and the total amount of items in the cart.
 <br></br>
-Основной стек - React.js, SCSS, Redux Toolkit, сборщик - Vite.<br>
-В разработке поиска товаров, фильтра категорий, корзины товара, бесконечной прокрутки был использован Redux Toolkit. <br>
-Также в поиске товара был использован lodash.debounce во избежании частого запроса на API. Валидация запроса - yup  <br>
-В горизонтальном скролле категорий использовался react-swiper.<br>
-В карточке товара слайдер изображений товара сделан с помощью react-slick.<br>
-Загрузка товара в начале и при "бесконечной прокрутке" сделан с помощью компонента Ant Design.<br>
-В "бесконечной прокрутке" - кастомный хук.
+The main stack is React.js, SCSS, Redux Toolkit, Vite.
+Redux Toolkit was used in the development of product search, category filtering, shopping cart, and infinite scroll.
+Lodash.debounce was also used in product search to avoid frequent API requests. Validation of the request - yup
+React-swiper was used in the horizontal scroll of categories.
+The product card image slider is made with react-slick.
+Product loading at the start and during "infinite scroll" is done using the Ant Design component.
+In "infinite scroll" - a custom hook.
 
 
-Исполнитель: <br>
-Сардана Дорджиева<br>
+Author: <br>
+Sardana Dordzhieva<br>
 e-mail: sardanadord@yandex.ru<br>
 telegram: saradordzh<br>

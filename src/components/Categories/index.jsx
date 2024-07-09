@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { allCategories } from "../../api";
@@ -16,13 +16,12 @@ const Categories = () => {
   const categoriesData = useSelector((state) => state.categories.categories);
   const dispatch = useDispatch();
   const chosenCategory =
-    useSelector((state) => state.filter.chosenCategory) || "all";
-
+    useSelector((state) => state.filter.chosenCategory) || "All";
   useEffect(() => {
     const fetchCategories = async () => {
       try {
         const data = await allCategories();
-        data.unshift("all");
+        data.unshift({ slug: "all", name: "All", url: "" });
         dispatch(setCategories(data));
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -51,13 +50,13 @@ const Categories = () => {
                   <div
                     onClick={(e) => handleFilter(e)}
                     className={`${styles.category} text-m ${
-                      chosenCategory === category ||
-                      (chosenCategory === "" && category === "all")
+                      chosenCategory === category.name ||
+                      (chosenCategory === "" && category.name === "All")
                         ? styles.selected
                         : ""
                     }`}
                   >
-                    {category}
+                    {category.name}
                   </div>
                 </SwiperSlide>
               ))}
